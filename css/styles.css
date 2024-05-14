@@ -95,8 +95,10 @@ ul {
   margin: 0rem 0.5rem;
 }
 .nav_link {
+  color:black;
+  /* color:whitesmoke; */
   padding: 0.6rem;
-  color: var(--colo-dark-1);
+  /* color: var(--colo-dark-1); */
 }
 .nav_form {
   padding: 0.8rem;
@@ -182,27 +184,19 @@ ul {
 .swiper {
   width: 100%;
   max-height: 100%;
-  margin-bottom: 5rem;
-  outline: 3px solid green;
+  padding-bottom:7rem;
   overflow: auto;
 }
 
 
 
-/* .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
-
 /* cards */
 .card {
-  margin-bottom: 5rem;
-  outline: 2px dotted red;
   max-height: 300px;
+  height: 250px;
+  aspect-ratio: 1;
+  margin: 20px;
+  margin-right: 40px;
 }
 .card_top {
   width: 100%;
@@ -210,9 +204,11 @@ ul {
   position: relative;
 }
 .card_img {
+  margin-bottom: 5rem;
   width: 250px;
   border-radius: 10px;
   height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
 }
 .card_tag {
   position: absolute;
@@ -312,11 +308,7 @@ ul {
   margin-top: 1rem;
   margin-bottom: 3rem;
 }
-.trending_btn {
-  background-color: var(--color-green);
-  padding: 1rem 2rem;
-  color: var(--colo-white-1);
-}
+
 .products {
   width: 100%;
   display: grid;
@@ -530,14 +522,20 @@ ul {
   margin-top: 2rem;
   text-align: right;
 }
-.add_to_cart {
+.adopt_btn {
   padding: 1rem 2rem;
   background-color: var(--colo-primary);
   color: var(--colo-white-1);
   cursor: pointer;
-  border: none;
-  outline: none;
-  margin-top: 2rem;
+  margin-top: 0rem;
+  border:none;
+  border-radius:5px;
+  /* margin-bottom:1rem; */
+}
+.adopt_btn:hover {
+  background-color: rgb(255, 80, 5);
+  transition: all 0.1s ease-in-out;
+  transform:scale(1.1) ;
 }
 
 /* Authentications */

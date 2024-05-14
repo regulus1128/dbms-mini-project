@@ -16,14 +16,14 @@ var x = setInterval(function () {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("demo").innerHTML =
-    days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  // document.getElementById("demo").innerHTML =
+  //   days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
 
   // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
+//   if (distance < 0) {
+//     clearInterval(x);
+//     document.getElementById("demo").innerHTML = "EXPIRED";
+//   }
 }, 1000);
 
 var swiper = new Swiper(".mySwiper", {
@@ -91,18 +91,63 @@ hamburger.addEventListener("click", () => {
   Nav.classList.toggle("mobile_nav_hide");
 });
 
-const AddToCart = document.querySelectorAll(".add_to_cart");
+// const AddToCart = document.querySelectorAll(".add_to_cart");
 
-AddToCart.forEach((button) => {
-  button.addEventListener("click", () => {
-    const id = button.getAttribute("data-id");
-    const title = button.getAttribute("data-title");
-    const image = button.getAttribute("data-image");
-    const price = button.getAttribute("data-price");
+// AddToCart.forEach((button) => {
+//   button.addEventListener("click", () => {
+//     const id = button.getAttribute("data-id");
+//     const title = button.getAttribute("data-title");
+//     const image = button.getAttribute("data-image");
+//     const price = button.getAttribute("data-price");
 
-    const cartItem = { id, title, image, price };
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    cart.push(cartItem);
-    localStorage.setItem("cart", JSON.stringify(cart));
+//     const cartItem = { id, title, image, price };
+//     const cart = JSON.parse(localStorage.getItem("cart")) || [];
+//     cart.push(cartItem);
+//     localStorage.setItem("cart", JSON.stringify(cart));
+//   });
+// });
+
+
+const adoptButtons = document.querySelectorAll('.adopt_btn');
+
+function confirmOrder(event){
+  const choice = confirm("Confirm Order?");
+
+  if (choice) {
+    alert("Booked 🐶!"); // Action for OK button
+    console.log(event.target);
+  } 
+}
+
+adoptButtons.forEach(button => {
+  button.addEventListener('click', confirmOrder(e));
+    // const cardDetails = this.nextElementSibling; // Get the next sibling div
+    // cardDetails.classList.toggle('flipped'); // Flip the card
+
+      
+ 
+});
+
+const payButtons = document.querySelectorAll('.pay-btn');
+
+payButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    // Mark item as unavailable (logic depends on your setup)
+    const card = this.closest('.card'); // Get the closest ancestor card
+    card.classList.add('unavailable');
+    card.querySelector('.adopt_btn').textContent = 'Sold Out';
+    card.querySelector('.adopt_btn').disabled = true; // Disable button
+
+    // Additional steps for payment processing (not included here)
   });
 });
+
+const cancelButtons = document.querySelectorAll('.cancel-btn');
+
+cancelButtons.forEach(button => {
+  button.addEventListener('click', function() {
+    // Close the card if needed (logic depends on your setup)
+    const cardDetails = this.closest('.card-details');
+    cardDetails.classList.remove('flipped');
+  });
+})
