@@ -26,28 +26,28 @@ var x = setInterval(function () {
 //   }
 }, 1000);
 
-var swiper = new Swiper(".mySwiper", {
-  slidesPerView: 2,
-  spaceBetween: 10,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  breakpoints: {
-    640: {
-      slidesPerView: 2,
-      spaceBetween: 10,
-    },
-    768: {
-      slidesPerView: 3,
-      spaceBetween: 10,
-    },
-    1024: {
-      slidesPerView: 4,
-      spaceBetween: 10,
-    },
-  },
-});
+// var swiper = new Swiper(".mySwiper", {
+//   slidesPerView: 2,
+//   spaceBetween: 10,
+//   pagination: {
+//     el: ".swiper-pagination",
+//     clickable: true,
+//   },
+//   breakpoints: {
+//     640: {
+//       slidesPerView: 2,
+//       spaceBetween: 10,
+//     },
+//     768: {
+//       slidesPerView: 3,
+//       spaceBetween: 10,
+//     },
+//     1024: {
+//       slidesPerView: 4,
+//       spaceBetween: 10,
+//     },
+//   },
+// });
 
 // Animations
 ScrollReveal().reveal(".top_nav", {
@@ -114,17 +114,21 @@ function confirmOrder(event){
   const choice = confirm("Confirm Order?");
 
   if (choice) {
+    console.log(event.target.parentElement.querySelector('h3.card_title').textContent);
     alert("Booked 🐶!"); // Action for OK button
-    console.log(event.target);
+
+
+    let targetElement = event.target.parentElement.parentElement;
+    console.log(targetElement);
+    // targetElement.style.border="2px solid greenyellow";
+     event.target.disabled = true;
+    targetElement.style.opacity= "0.3";
   } 
+
 }
 
 adoptButtons.forEach(button => {
-  button.addEventListener('click', confirmOrder(e));
-    // const cardDetails = this.nextElementSibling; // Get the next sibling div
-    // cardDetails.classList.toggle('flipped'); // Flip the card
-
-      
+  button.addEventListener('click',(e) => confirmOrder(e));  
  
 });
 
