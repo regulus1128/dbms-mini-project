@@ -107,7 +107,7 @@ hamburger.addEventListener("click", () => {
 //   });
 // });
 
-
+// * From here 
 const adoptButtons = document.querySelectorAll('.adopt_btn');
 
 function confirmOrder(event){
@@ -131,6 +131,9 @@ adoptButtons.forEach(button => {
   button.addEventListener('click',(e) => confirmOrder(e));  
  
 });
+
+// * Till here
+
 
 const payButtons = document.querySelectorAll('.pay-btn');
 
